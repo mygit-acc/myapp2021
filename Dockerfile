@@ -1,3 +1,8 @@
+FROM maven:3.6.3-jdk-8-slim AS build
+WORKDIR /home/app
+COPY . /home/app
+RUN mvn -f /home/app/pom.xml clean package
+
 FROM alpine:3.13.5
 RUN apk add openjdk8
 WORKDIR /opt
