@@ -20,7 +20,12 @@ steps:
 #     mavenAuthenticateFeed: false
 #     effectivePomSkip: false
 #     sonarQubeRunAnalysis: false
+# - task: Docker@2
+#   inputs:
+#     command: 'build'
+#     Dockerfile: '**/Dockerfile'
 - task: Docker@2
   inputs:
     command: 'build'
     Dockerfile: '**/Dockerfile'
+    arguments: 'docker build -t kiran .'
