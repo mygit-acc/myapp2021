@@ -1,8 +1,8 @@
 trigger:
 - develop
 
-pool:
-  vmImage: ubuntu-latest
+pool: kiran
+  # vmImage: ubuntu-latest
 
 # steps:
 # - task: Maven@3
