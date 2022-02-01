@@ -24,8 +24,12 @@ steps:
 #   inputs:
 #     command: 'build'
 #     Dockerfile: '**/Dockerfile'
+- task: AWSCLI@1
+  inputs:
+    awsCredentials: 'aws-cli'
+    regionName: 'us-east-1'
+    awsCommand: 'aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/s1m8f5e6'
 - task: Docker@2
   inputs:
-    command: 'build'
+    command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-    arguments: 'docker build -t kiran'
