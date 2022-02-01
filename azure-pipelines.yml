@@ -35,10 +35,10 @@ pool:
 #   inputs:
 #     command: 'buildAndPush'
 #     Dockerfile: '**/Dockerfile'
-variables:
-  - group: dev
-  - name: DOCKER_REPOSITORY
-    value: public.ecr.aws/$(AWS_ACCOUNT_ID)/$(DOCKER_REPOSITORY_NAME)
+# variables:
+#   - group: dev
+#   - name: DOCKER_REPOSITORY
+#     value: public.ecr.aws/$(AWS_ACCOUNT_ID)/$(DOCKER_REPOSITORY_NAME)
 
 steps:
 - script: |
