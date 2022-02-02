@@ -1,8 +1,9 @@
 trigger:
 - develop
 
-pool: kiran
-  # vmImage: ubuntu-latest
+# pool: kiran
+pool:
+  vmImage: ubuntu-latest
 
 # steps:
 
