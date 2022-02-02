@@ -29,7 +29,10 @@ variables:
 
 steps:
 - script: |
+    echo $(System.DefaultWorkingDirectory)
     mvn clean package
+    echo $(System.DefaultWorkingDirectory)
+    echo $(Build.ArtifactStagingDirectory)
     aws ecr-public get-login-password --region $(AWS_REGION) | docker login --username AWS --password-stdin public.ecr.aws/$(AWS_ACCOUNT_ID)
   displayName: 'Login to AWS'
   env:
