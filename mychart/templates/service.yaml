@@ -12,5 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    labels:
      app: "{{ .Chart.Name }}"
