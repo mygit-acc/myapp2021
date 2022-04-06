@@ -9,8 +9,7 @@ metadata:
   annotations:
      nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  - hosts:
-    - {{ .Values.host }}
+  - hosts: {{ .Values.host }}
       
   rules:
   - host: {{ .Values.host }}
