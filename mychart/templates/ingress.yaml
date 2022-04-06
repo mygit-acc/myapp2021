@@ -10,16 +10,16 @@ metadata:
      nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   - hosts:
-        {{ .Values.host }}
+    - {{ .Values.host }}
       
   rules:
-    - host: {{ .Values.host }}
-      http:
-        paths:
-          - path: {{ .Values.path }}
-            backend:
-              service:
-                name: "{{ .Chart.Name }}"
-                port:
-                  number: {{ .Values.service.port }}
+  - host: {{ .Values.host }}
+    http:
+      paths:
+        - path: {{ .Values.path }}
+          backend:
+            service:
+              name: "{{ .Chart.Name }}"
+              port:
+                number: {{ .Values.service.port }}
 {{- end }}
