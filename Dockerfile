@@ -22,4 +22,4 @@ FROM nginx:1.20
 RUN echo "<h2> Hello, How Are You? </h2>" > /usr/share/nginx/html/index.html
 EXPOSE 80 
 
-CMD ["nginx", "-g", "deamon off;"]
+CMD ["nginx", "-g", "daemon off;"]
