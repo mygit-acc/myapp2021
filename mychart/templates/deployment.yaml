@@ -5,9 +5,7 @@ metadata:
   labels:
      app: "{{ .Chart.Name }}"
 spec:
-  #{{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-  #{{- end }}
   selector:
     matchLabels:
       app: "{{ .Chart.Name }}"
@@ -15,17 +13,12 @@ spec:
     metadata:
       labels:
         app: "{{ .Chart.Name }}"
-    spec:
-      
+    spec:      
       imagePullSecrets:
         - name: {{ .Values.imagePullSecrets }}
       serviceAccountName: "{{ .Values.serviceAccount.name }}"
-      securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
           image: 870608046950.dkr.ecr.us-east-1.amazonaws.com/myeks:98
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
@@ -40,17 +33,3 @@ spec:
             httpGet:
               path: /
               port: http
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.affinity }}
-      affinity:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.tolerations }}
-      tolerations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
