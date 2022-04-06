@@ -5,10 +5,9 @@ metadata:
   name: "{{ .Chart.Name }}"
   labels:
     app: "{{ .Chart.Name }}"
-  {{- with .Values.ingress.annotations }}
+  
   annotations:
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
+     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   - hosts:
         {{ .Values.host }}
