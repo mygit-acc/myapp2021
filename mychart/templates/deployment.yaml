@@ -19,7 +19,7 @@ spec:
       serviceAccountName: "{{ .Values.serviceAccount.name }}"
       containers:
         - name: {{ .Chart.Name }}
-          image: 870608046950.dkr.ecr.us-east-1.amazonaws.com/myeks:117
+          image: 870608046950.dkr.ecr.eu-central-1.amazonaws.com/myecr:122
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
